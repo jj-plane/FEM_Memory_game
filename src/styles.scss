@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+.grid{
+    display:grid;
+    grid-template-columns: repeat(5, 75px);
+    gap: 16px;
+    justify-content: center;
+}
+
+@media (max-width:600px){
+    .grid {
+        grid-template-columns: repeat(2, 150px);
+    }
+}

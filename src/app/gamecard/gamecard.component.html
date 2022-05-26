@@ -1,0 +1,8 @@
+<div class="card" (click)="cardClicked.emit()" [@cardFlip]="data?.state" [ngClass]="data.state === 'matched' ? 'matched' : ''">
+    <div class="back">
+        <i *ngIf="data.state==='matched'" [ngClass]="data.imageId ? data.imageId : ''"></i>
+    </div>
+    <div class="front">
+        <i [ngClass]="data.imageId ? data.imageId : ''"></i>
+    </div>
+</div>

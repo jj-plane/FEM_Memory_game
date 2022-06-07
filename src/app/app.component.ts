@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Gamecard } from './gamecard.interface';
+import { Player } from './player.interface';
 
 @Component({
   selector: 'app-root',
@@ -39,8 +40,8 @@ export class AppComponent implements OnInit{
   totalTurns: number = 0;
   
   //Player system
+  players: Player[] = [];
   currentPlayer: number = 1;
-  maxPlayers: number = 1;
 
   //Navigation
   showStartScreen: boolean = true;
@@ -50,8 +51,7 @@ export class AppComponent implements OnInit{
     this.showStartScreen = false;
     this.theme = event.theme.value;
     this.gridSize = event.grid.value;
-    this.maxPlayers = event.players.value;
-
+    this.setupPlayers(parseInt(event.players.value));
     this.setupCards();
   }
 
@@ -66,6 +66,36 @@ export class AppComponent implements OnInit{
     }
   
     return deck;
+  }
+
+  setupPlayers(playerNumber: number){
+    for(let i = 0; i < playerNumber; i++){
+      const newPlayer: Player = {
+        id: i,
+        turns: 0
+      }
+      this.players.push(newPlayer);
+    }
+  }
+
+  updatePlayer(){
+    //First, we update the current players turns
+    this.players[this.currentPlayer - 1].turns++;
+
+    //then we check to see if there's only 1 player, if so, we just return
+    if(this.players.length === 1){
+      return;
+    }
+    //If there's more than 1, then we check to see if we're at the last player.
+    else if(this.players.length > 1 && this.players.length === this.currentPlayer){
+      //If we are, we reset the current player back to 1
+      this.currentPlayer = 1;
+      return;
+    }
+    //Otherwise, we just tick the current player up 1
+    else{
+      this.currentPlayer++;
+    }
   }
 
   setupCards(){
@@ -119,6 +149,7 @@ export class AppComponent implements OnInit{
       }
 
       this.totalTurns++;
+      this.updatePlayer();
     }, 1000)
   }
 

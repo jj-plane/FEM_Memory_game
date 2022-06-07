@@ -6,5 +6,10 @@
 <app-startscreen (GameStarted)="startGame($event)" *ngIf="showStartScreen"></app-startscreen>
 <p *ngIf="!showStartScreen">Total turns: {{totalTurns}}</p>
 <p *ngIf="!showStartScreen">Theme: {{theme}}</p>
-<p *ngIf="!showStartScreen">Total players: {{maxPlayers}}</p>
+<!-- <p *ngIf="!showStartScreen">Total players: {{maxPlayers}}</p> -->
 <p *ngIf="!showStartScreen">grid size: {{gridSize}}</p>
+
+<hr />
+<p>Player System</p>
+<pre>players: {{players | json}}</pre>
+<pre>current player: {{currentPlayer}}</pre>

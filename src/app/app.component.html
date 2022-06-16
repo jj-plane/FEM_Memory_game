@@ -1,10 +1,16 @@
-<h1>Memory Card Game</h1>
-<div class="grid" *ngIf="!showStartScreen">
-    <app-gamecard *ngFor="let c of cards; let i = index" [data]="c" (cardClicked)="cardClick(i)"></app-gamecard>
+<div class="outterContainer" [ngClass]="showStartScreen ? 'showStart': 'playing'">
+    <div class="innerContainer">
+        <h1 style="color:white;">memory</h1>
+        
+        <div [ngClass]="gridSize === 8 ? 'smallGrid': 'grid'" *ngIf="!showStartScreen">
+            <app-gamecard [theme]="theme" *ngFor="let c of cards; let i = index" [data]="c" (cardClicked)="cardClick(i)"></app-gamecard>
+        </div>
+        
+        <app-restartscreen *ngIf="showRestartScreen"></app-restartscreen>
+        <app-startscreen (GameStarted)="startGame($event)" *ngIf="showStartScreen"></app-startscreen>
+        <p *ngIf="!showStartScreen">Total turns: {{totalTurns}}</p>
+        <p *ngIf="!showStartScreen">Theme: {{theme}}</p>
+        <p *ngIf="!showStartScreen">Total players: {{maxPlayers}}</p>
+        <p *ngIf="!showStartScreen">grid size: {{gridSize}}</p>
+    </div>
 </div>
-<app-restartscreen *ngIf="showRestartScreen"></app-restartscreen>
-<app-startscreen (GameStarted)="startGame($event)" *ngIf="showStartScreen"></app-startscreen>
-<p *ngIf="!showStartScreen">Total turns: {{totalTurns}}</p>
-<p *ngIf="!showStartScreen">Theme: {{theme}}</p>
-<p *ngIf="!showStartScreen">Total players: {{maxPlayers}}</p>
-<p *ngIf="!showStartScreen">grid size: {{gridSize}}</p>

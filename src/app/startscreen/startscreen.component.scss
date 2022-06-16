@@ -1,0 +1,29 @@
+.startScreenOverlay{
+    font-family: 'Atkinson Hyperlegible', sans-serif;
+    background:white;
+    padding:4rem;
+    border-radius: 20px;
+    @media(min-width:998px){
+        min-width:100%;
+    }
+    label{
+        color:#7191A5;
+    }
+    .startScreenRadio{
+        appearance: progress-bar;
+    }
+    .submit{
+        background:#FDA214;
+        color:white;
+        border:0;
+        padding: .25rem .35rem;
+        font-family: 'Atkinson Hyperlegible', sans-serif;
+        font-size:22px;
+        font-weight: bold;
+        text-align: center;
+        display: block;
+        margin:1rem auto;
+        padding:1rem 4rem;
+        border-radius:35px;
+    }
+}

@@ -1,0 +1,24 @@
+.outterContainer{
+    height:100%;
+    width: 100%;
+    display:flex;
+    justify-content: center;
+    .innerContainer{
+        @media(min-width:750px) {
+            width:600px;
+        }
+    }
+    h1{
+        margin:0;
+        font-family: 'Atkinson Hyperlegible', sans-serif;
+        text-align: center;
+        margin-top:3rem;
+        margin-bottom:1.5rem;
+    }
+}
+.showStart{
+    background-color: #152938;
+}
+.playing{
+    background-color: #FCFCFC;
+}

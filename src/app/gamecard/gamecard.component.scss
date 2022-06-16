@@ -1,3 +1,5 @@
+
+
 :host {
     display: block;
 }
@@ -6,6 +8,8 @@
 
     border-radius: 50%;
     height: 75px;
+    max-width: 100px;
+    max-height: 125px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,6 +17,12 @@
     position: relative;
     transform-style: preserve-3d;
     background:transparent;
+
+    p{
+        font-weight: 700;
+        font-size: 2.25rem;
+        font-family: 'Atkinson Hyperlegible', sans-serif;
+    }
 }
 
 .back,

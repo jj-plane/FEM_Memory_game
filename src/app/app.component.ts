@@ -8,6 +8,14 @@ import { Gamecard } from './gamecard.interface';
 })
 export class AppComponent implements OnInit{
   cardImages = [
+    'fa-solid fa-person-snowboarding',
+    'fa-solid fa-dumbbell',
+    'fa-solid fa-apple-whole',
+    'fa-solid fa-drum',
+    'fa-solid fa-amp-guitar',
+    'fa-solid fa-guitar-electric',
+    'fa-solid fa-joystick',
+    'fa-solid fa-alien-8bit',
     'fa-solid fa-futbol',
     'fa-solid fa-anchor',
     'fa-solid fa-flask',
@@ -20,12 +28,8 @@ export class AppComponent implements OnInit{
     'fa-solid fa-car'
   ];
 
-  smallGrid = {
-    
-  }
-
-  //grid is either small or large. User sets this
-  gridSize = 'small';
+  //grid is either 8 or 18. User sets this
+  gridSize:number = 8;
 
   //Theme can be icons or numbers. The pieces have both data in them
   theme: string = 'icons';
@@ -49,7 +53,7 @@ export class AppComponent implements OnInit{
   startGame(event:any){
     this.showStartScreen = false;
     this.theme = event.theme.value;
-    this.gridSize = event.grid.value;
+    this.gridSize = parseInt(event.grid.value);
     this.maxPlayers = event.players.value;
 
     this.setupCards();
@@ -70,16 +74,16 @@ export class AppComponent implements OnInit{
 
   setupCards(){
     this.cards.length = 0;
-    this.cardImages.forEach((img, index) => {
-      const newCard: Gamecard = {
-        imageId: img,
-        state: 'default',
-        num: index
-      };
 
+    for(let i = 0; i < this.gridSize; i++){
+      const newCard: Gamecard = {
+        imageId: this.cardImages[i],
+        state: 'default',
+        num: i
+      }
       this.cards.push({...newCard});
       this.cards.push({...newCard});
-    })
+    }
 
     this.cards = this.shuffle(this.cards);
   }
@@ -112,7 +116,7 @@ export class AppComponent implements OnInit{
 
       if(nextState === 'matched'){
         this.matchedCount++;
-        if(this.matchedCount === this.cardImages.length){
+        if(this.matchedCount === this.gridSize){
           alert("YOU WIN");
           this.showRestartScreen = true;
         }

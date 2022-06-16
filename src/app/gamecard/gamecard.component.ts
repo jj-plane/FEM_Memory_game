@@ -40,6 +40,7 @@ export class GamecardComponent implements OnInit {
     state: 'default',
     num: 0
   }
+  @Input() theme = '';
 
   @Output() cardClicked = new EventEmitter();
 

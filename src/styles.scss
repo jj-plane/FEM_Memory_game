@@ -73,7 +73,7 @@ app-root {
 .smallGrid{
     display: grid;
     grid-template-columns: repeat(4, 75px);
-    grid-template-rows: repeat(4, 125px);
+    grid-template-rows: repeat(4, 95px);
     gap: 16px;
     justify-content: center;
 }

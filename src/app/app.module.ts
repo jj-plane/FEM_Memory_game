@@ -9,6 +9,7 @@ import { GamecardComponent } from './gamecard/gamecard.component';
 import { StartscreenComponent } from './startscreen/startscreen.component';
 import { RestartscreenComponent } from './restartscreen/restartscreen.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { PlayerDisplayComponent } from './player-display/player-display.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     GamecardComponent,
     StartscreenComponent,
     RestartscreenComponent,
+    PlayerDisplayComponent,
   ],
   imports: [
     BrowserModule,

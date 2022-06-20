@@ -6,12 +6,57 @@
     @media(min-width:998px){
         min-width:100%;
     }
-    label{
+
+    .inputFlexContainer{
+        display:flex;
+        justify-content: space-evenly;
+        div{
+            flex-grow: 1;
+            //padding:0 .55rem;
+            padding-right:1rem;
+        }
+    }
+    fieldset{
+        border:0;
+        margin-bottom:1rem;
+        padding:.75rem 0;
+    }
+    legend{
         color:#7191A5;
+        font-weight: 700;
+        font-size: 1.15rem;
+    }
+    label{
+        display: inline-block;
+        text-align: center;
+        vertical-align: middle;
+        cursor: pointer;
+        user-select: none;
+        border:1px solid transparent;
+        padding: 0.375rem 0.75rem;
+        font-size:1.32rem;
+        line-height: 1.5;
+        border-radius:26px;
+        transition: all .15s;
+        color:#fff;
+        background-color:#BCCED9;
+        border-color: #BCCED9;
+        width:100%;
+        font-weight: 600;
     }
     .startScreenRadio{
-        appearance: progress-bar;
+        opacity: 0;
+        position: absolute;
+
+        &:checked + label{
+            background-color: #304859;
+        }
+
+        &:hover + label{
+            border-color:#304859;
+        }
     }
+
     .submit{
         background:#FDA214;
         color:white;
@@ -25,5 +70,12 @@
         margin:1rem auto;
         padding:1rem 4rem;
         border-radius:35px;
+        cursor: pointer;
+        width: 100%;
+        transition: all .25s;
+
+        &:hover{
+            background:#FFB84A;
+        }
     }
 }

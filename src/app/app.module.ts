@@ -10,6 +10,7 @@ import { StartscreenComponent } from './startscreen/startscreen.component';
 import { RestartscreenComponent } from './restartscreen/restartscreen.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PlayerDisplayComponent } from './player-display/player-display.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { PlayerDisplayComponent } from './player-display/player-display.componen
     StartscreenComponent,
     RestartscreenComponent,
     PlayerDisplayComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,

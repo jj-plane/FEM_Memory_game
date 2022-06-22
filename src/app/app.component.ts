@@ -57,6 +57,7 @@ export class AppComponent implements OnInit{
     this.gridSize = parseInt(event.grid.value);
     this.setupPlayers(parseInt(event.players.value));
     this.setupCards();
+    
   }
 
   shuffle(deck: Gamecard[]) {

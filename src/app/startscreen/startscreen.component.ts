@@ -27,6 +27,6 @@ export class StartscreenComponent implements OnInit {
 
   themeControl = new FormControl('numbers');
   playersControl = new FormControl('1');
-  gridControl = new FormControl(8);
+  gridControl = new FormControl('8');
 
 }

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -8,6 +8,8 @@ import { Component, Input, OnInit } from '@angular/core';
 export class NavbarComponent implements OnInit {
 
   @Input() startScreen = true;
+  @Output() RestartGameEvent = new EventEmitter();
+  @Output() NewGameEvent = new EventEmitter();
 
   constructor() { }
 
@@ -15,11 +17,12 @@ export class NavbarComponent implements OnInit {
   }
 
   restartGame(){
-    alert('restart');
+    console.log('restarting game');
+    this.RestartGameEvent.emit({});
   }
 
   newGame(){
-    alert('new game');
+    this.NewGameEvent.emit({});
   }
 
 }

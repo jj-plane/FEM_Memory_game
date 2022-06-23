@@ -1,1 +1,10 @@
-<p>player-display works!</p>
+<div *ngIf="!multiplePlayers" class="singlePlayerContainer">
+    <div class="time"></div>
+    <div class="moves"></div>
+</div>
+<div *ngIf="multiplePlayers" class="multiPlayerContainer">
+    <div class="playerDisplay">
+        <div class="yellowBar"></div>
+        <div class="currentTurnLabel"><small>CURRENT TURN</small></div>
+    </div>
+</div>

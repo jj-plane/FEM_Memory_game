@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-player-display',
@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlayerDisplayComponent implements OnInit {
 
+
+  @Input() multiplePlayers = false;
   constructor() { }
 
   ngOnInit(): void {

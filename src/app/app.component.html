@@ -1,15 +1,14 @@
-<app-navbar [startScreen]="showStartScreen"></app-navbar>
+<app-navbar (NewGameEvent)="newGame($event)"  (RestartGameEvent)="restartGame($event)" [startScreen]="showStartScreen"></app-navbar>
 <div class="outterContainer" [ngClass]="showStartScreen ? 'showStart': 'playing'">
     <div class="innerContainer">
         
         <div [ngClass]="gridSize === 8 ? 'smallGrid': 'grid'" *ngIf="!showStartScreen">
             <app-gamecard [theme]="theme" *ngFor="let c of cards; let i = index" [data]="c" (cardClicked)="cardClick(i)"></app-gamecard>
         </div>
+
+        <app-player-display [multiplePlayers]="players.length === 1 ? false : true"></app-player-display>
         
         <app-restartscreen *ngIf="showRestartScreen"></app-restartscreen>
         <app-startscreen (GameStarted)="startGame($event)" *ngIf="showStartScreen"></app-startscreen>
-        <p *ngIf="!showStartScreen">Total turns: {{totalTurns}}</p>
-        <p *ngIf="!showStartScreen">Theme: {{theme}}</p>
-        <p *ngIf="!showStartScreen">grid size: {{gridSize}}</p>
     </div>
 </div>

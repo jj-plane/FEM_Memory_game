@@ -57,7 +57,29 @@ export class AppComponent implements OnInit{
     this.gridSize = parseInt(event.grid.value);
     this.setupPlayers(parseInt(event.players.value));
     this.setupCards();
-    
+  }
+
+  restartGame(event:any){
+    //Reset player turns
+    for(let i = 0; i < this.players.length; i++){
+      this.players[i].turns = 0;
+    }
+    //Reset total turns
+    this.totalTurns = 0;
+    //Reset cards
+    this.setupCards();
+  }
+
+  newGame(event:any){
+    //Reset player turns
+    for(let i = 0; i < this.players.length; i++){
+      this.players[i].turns = 0;
+    }
+    //Reset total turns
+    this.totalTurns = 0;
+
+    //Show the start screen
+    this.showStartScreen = true;
   }
 
   shuffle(deck: Gamecard[]) {

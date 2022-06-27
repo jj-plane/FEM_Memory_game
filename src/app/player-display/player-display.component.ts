@@ -18,7 +18,6 @@ export class PlayerDisplayComponent implements OnInit, OnDestroy {
   constructor() { }
 
   ngOnInit(): void {
-    console.log('hello')
     timer(0, 1000).subscribe(n => this.updateTimer(n));
   }
 

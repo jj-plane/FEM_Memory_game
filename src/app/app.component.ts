@@ -63,9 +63,12 @@ export class AppComponent implements OnInit{
     //Reset player turns
     for(let i = 0; i < this.players.length; i++){
       this.players[i].turns = 0;
+      this.players[i].matches = 0;
     }
     //Reset total turns
     this.totalTurns = 0;
+    //Set turn back to player 1
+    this.currentPlayer = 1;
     //Reset cards
     this.setupCards();
   }
@@ -74,9 +77,13 @@ export class AppComponent implements OnInit{
     //Reset player turns
     for(let i = 0; i < this.players.length; i++){
       this.players[i].turns = 0;
+      this.players[i].matches = 0;
     }
     //Reset total turns
     this.totalTurns = 0;
+
+    //Remove the players
+    this.players = [];
 
     //Show the start screen
     this.showStartScreen = true;
@@ -99,7 +106,8 @@ export class AppComponent implements OnInit{
     for(let i = 0; i < playerNumber; i++){
       const newPlayer: Player = {
         id: i,
-        turns: 0
+        turns: 0,
+        matches: 0
       }
       this.players.push(newPlayer);
     }
@@ -168,6 +176,7 @@ export class AppComponent implements OnInit{
       this.flippedCards.length = 0;
 
       if(nextState === 'matched'){
+        this.players[this.currentPlayer - 1].matches++; 
         this.matchedCount++;
         if(this.matchedCount === this.gridSize){
           alert("YOU WIN");

@@ -1,3 +1,52 @@
 small{
     font-family: 'Atkinson Hyperlegible', sans-serif;
 }
+
+.multiPlayerContainer{
+    padding-top:5rem;
+    display: flex;
+    font-family: 'Atkinson Hyperlegible', sans-serif;
+
+    .hidden{
+        display: none;
+    }
+
+    .playerDisplay{
+        position: relative;
+        width:100%;
+        background:#DFE7EC;
+        margin: 0 .25rem;
+        transition: all .2s;
+        color:#7191A5;
+        border-radius: 13px;
+        padding:1rem .5rem;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        .currentTurnLabel{
+            font-size: 2rem;
+            width:25%;
+            text-align: right;
+            padding-right:.5rem;
+        }
+        .currentPlayerLabel{
+            width:75%;
+            padding-left:.5rem;
+            
+        }
+    }
+
+    .activePlayer{
+        background:#FDA214;
+        color:white;
+
+        #activePlayerTriangle{
+            display: block !important;
+            position: absolute;
+            top:-20px;
+            left: calc(50% - 15px);
+        }
+
+
+    }
+}

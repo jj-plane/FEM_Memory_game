@@ -3,8 +3,10 @@
     <div class="moves"></div>
 </div>
 <div *ngIf="multiplePlayers" class="multiPlayerContainer">
-    <div class="playerDisplay">
-        <div class="yellowBar"></div>
-        <div class="currentTurnLabel"><small>CURRENT TURN</small></div>
+    <div *ngFor="let player of players; let i = index" [ngClass]="i === currentPlayer - 1 ? 'activePlayer': ''" class="playerDisplay">
+        <img src="../../assets/orangeTriangle.svg" class="hidden" height="35" width="45" id="activePlayerTriangle" alt="active player alert" />
+        <p class="currentPlayerLabel">Player {{player.id + 1}}</p>
+        <div class="currentTurnLabel"><p>{{player.matches}}</p></div>
+        <p></p>
     </div>
 </div>

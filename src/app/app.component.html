@@ -6,7 +6,7 @@
             <app-gamecard [theme]="theme" *ngFor="let c of cards; let i = index" [data]="c" (cardClicked)="cardClick(i)"></app-gamecard>
         </div>
 
-        <app-player-display [multiplePlayers]="players.length === 1 ? false : true"></app-player-display>
+        <app-player-display *ngIf="!showStartScreen" [currentPlayer]="currentPlayer" [multiplePlayers]="players.length === 1 ? false : true" [players]="players"></app-player-display>
         
         <app-restartscreen *ngIf="showRestartScreen"></app-restartscreen>
         <app-startscreen (GameStarted)="startGame($event)" *ngIf="showStartScreen"></app-startscreen>
